@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>钟表</title>
+    <style>
+        *{padding:0;margin:0;}
+        .all{
+            width:600px;
+            height:600px;
+            /* background:pink; */
+            margin:0 auto;
+            position: relative;
+            /* animation:a 1s linear infinite; */
+        }
+@keyframes a{
+    form{
+        transform:rotate(0deg)
+    }
+    to{
+        transform:rotate(360deg)
+    }
+}
+        span{color:#fff;}
+        .s1{
+            position:absolute;
+            margin-left:360px;
+            margin-top:-425px;
+        }
+        .s2{
+            position:absolute;
+            margin-left:407px;
+            margin-top:-380px;
+        }
+        .s3{
+            position:absolute;
+            margin-left:427px;
+            margin-top:-315px;
+        }
+        .s4{
+            position:absolute;
+            margin-left:407px;
+            margin-top:-250px;
+        }
+        .s5{
+            position:absolute;
+            margin-left:362px;
+            margin-top:-203px;
+        }
+        .s6{
+            position:absolute;
+            margin-left:296px;
+            margin-top:-187px;
+        }
+        .s7{
+            position:absolute;
+            margin-left:230px;
+            margin-top:-203px;
+        }
+        .s8{
+            position:absolute;
+            margin-left:184px;
+            margin-top:-249px;
+        }
+        .s9{
+            position:absolute;
+            margin-left:165px;
+            margin-top:-315px;
+        }
+        .s10{
+            position:absolute;
+            margin-left:184px;
+            margin-top:-381px;
+        }
+        .s11{
+            position:absolute;
+            margin-left:227px;
+            margin-top:-426px;
+        }
+        .s12{
+            position:absolute;
+            margin-left:293px;
+            margin-top:-444px;
+        }
+    </style>
+
+    <script>
+        window.onload=function(){
+            var canvas=document.getElementsByTagName('canvas')[0];
+            var thr=canvas.getContext('2d');
+
+
+
+
+        // 声明半径
+            var oR=150;
+            var oX=300;
+            var oY=300;
+
+// 声明画布所有内容的函数            
+    function WP(){
+
+        // 添加图片
+            var img=new Image()
+            img.src="2.png"
+            thr.drawImage(img,150,150);
+        // 径向渐变
+            // var color=thr.createRadialGradient(300,300,0,300,300,150);
+            // color.addColorStop(0,'#32e6f1');
+            // color.addColorStop(1,'#f1b932');
+            // thr.fillStyle=color;
+
+        //画表盘
+
+            thr.beginPath();
+            thr.arc(oX,oY,oR,0,2*Math.PI,false);
+            // thr.fill();
+            thr.closePath();
+      
+        // 画刻度
+            var deg=0;
+        //声明刻度长度
+            var oL=10;
+            for(var i=0;i<60;i++){
+                deg=i*6;
+            if(i%5==0){
+                oL=10;
+                thr.lineWidth=5;
+                thr.strokeStyle='red';
+            }else{
+                oL=6
+                thr.lineWidth=2;
+                thr.strokeStyle='#eef75d';  
+            }
+
+            thr.beginPath();
+            thr.moveTo(oX+oR*Math.cos(deg/180*Math.PI),oY+oR*Math.sin(deg/180*Math.PI));
+            thr.lineTo(oX+(oR-oL)*Math.cos(deg/180*Math.PI),oY+(oR-oL)*Math.sin(deg/180*Math.PI));
+            thr.stroke();
+            thr.closePath();      
+
+            }
+
+        // 封装表针    
+            function bStyle(bColor,bWidth,bL,deg){
+            thr.beginPath();
+            thr.strokeStyle=bColor;
+            thr.lineWidth=bWidth;
+            thr.moveTo(oX,oY);
+            thr.lineTo(oX+bL*Math.cos(deg/180*Math.PI),oY+bL*Math.sin(deg/180*Math.PI));
+            thr.stroke();
+            thr.closePath();
+            }
+        // 画表针
+                var date = new Date();
+                var sdeg = date.getSeconds() * 6 - 90;
+                var mdeg = date.getMinutes() * 6 - 90 + (date.getSeconds()*6/60);
+                var hdeg = date.getHours() * 30 - 90 + (date.getMinutes()*6/12);
+
+                // 画时针
+                    bStyle('#42f157',5,70,hdeg);
+                // 画分针
+                    bStyle('#f60',3,90,mdeg);
+                // 画秒针
+                    bStyle('#fff',2,115,sdeg);
+
+        // 画表芯
+            thr.beginPath();
+            thr.fillStyle='#fff';
+            thr.arc(oX,oY,10,0,2*Math.PI,false);
+            thr.fill();
+            thr.closePath();
+
+            thr.beginPath();
+            thr.fillStyle='#f60';
+            thr.arc(oX,oY,5,0,2*Math.PI,false);
+            thr.fill();
+            thr.closePath();
+
+        }
+
+        WP();
+
+        // 表针动画
+            setInterval(function(){
+            thr.clearRect(0,0,600,600);
+            WP();                         //表盘
+            },1000)
+
+        }
+
+    </script>
+</head>
+<body>
+    <div class="all">
+        <canvas width=600 height=600>
+            <img src="2.png" alt="">
+        </canvas>
+        <span class="s1">1</span><span class="s2">2</span><span class="s3">3</span><span class="s4">4</span><span class="s5">5</span><span class="s6">6</span>
+        <span class="s7">7</span><span class="s8">8</span><span class="s9">9</span><span class="s10">10</span><span class="s11">11</span><span class="s12">12</span>
+        
+    </div>
+
+</body>
+</html>
