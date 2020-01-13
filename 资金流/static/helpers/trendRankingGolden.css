@@ -1,0 +1,314 @@
+*{
+    margin:0;
+    padding:0;
+    font-size:10px;
+}
+@font-face{
+    font-family:'din';
+    src:url('../fonts/din.ttf');
+    src:url('../fonts/din.ttf')format('truetype')
+}
+html{
+    background: #131313;
+    font-family:"PingFangSC-Regular";
+}
+body{
+    -moz-user-select:none;/*火狐*/
+    -webkit-user-select:none;/*webkit浏览器*/
+    -ms-user-select:none;/*IE10*/
+    -khtml-user-select:none;/*早期浏览器*/
+    user-select:none;
+    overflow-y: auto;
+}
+/* 资金流向 */
+/* 第一个页面 */
+    .moneyFlow{
+        background:#131313;
+        color:#fff;
+        position: relative;
+    }
+    .moneyFlow:before{
+        content: '';
+        position: absolute;
+        bottom:0;
+        z-index: 2;
+        width:100%;
+        height:0.15rem;
+        background: #070707;
+    }
+    #allColumnarOut{
+        padding: 0 0 0.4rem 0;
+    }
+    .headerCount{
+        text-align:center;
+        color:#999;
+        font-size:0.26rem;
+        padding:0.3rem;
+        font-family:'PingFang-SC-Medium';
+    }
+    .headerTitle1{
+        padding:0.1rem 0.25rem;
+        clear: both;
+    }
+    .headertitleLeft{
+        font-size:0.29rem;
+        font-family:"PingFangSC-Medium"
+    }
+    .headertitleRight{
+        font-size:0.23rem;
+        float:right;
+        color:#999;
+    }
+    .timeStyle{
+        font-family: "din";
+        font-size:0.24rem;
+        color:#999;
+    }
+    #columnarOut{
+        width:100%;
+        height:0.6rem;
+        display:flex;
+    }
+    .columnarOutLeft{
+        height:100%;
+        line-height:0.7rem;
+        text-align: right;
+        flex:2.2;
+        color:#fff;
+    }
+    .columnarOutLeft>span{
+        font-size:0.26rem;
+    }
+    .columnarTop{
+        padding:0.25rem 0 0.1rem 0.2rem;
+        box-sizing: border-box;
+        flex:3.5;
+    }
+    .columnarTopColor{
+        height:0.25rem;
+        width:100%;
+    }
+    .columnarTopR{
+        height:100%;
+        padding:0 0.25rem 0 0;
+        line-height:0.7rem;
+        text-indent:0.2rem;
+        flex:1.5;
+        color:#fff;
+        text-align:right;
+        font-family:"din"
+    }
+    .columnarTopR>span{
+        font-size: 0.24rem;
+    }
+    .columnarTop1{
+        padding:0.25rem 0 0.1rem 0.2rem;
+        box-sizing: border-box;
+        flex:3.5;
+    }
+/* 第二个页面 */
+    .netCapital{
+        background:#131313;
+        position: relative;
+    }
+    .netCapital:before{
+        content: '';
+        position: absolute;
+        bottom:0;
+        z-index: 2;
+        width:100%;
+        height:0.15rem;
+        background: #070707;
+    }
+    .netCapitalTitle{
+        margin-top:0.1rem;
+        padding: 0.2rem;
+        color: #fff;
+        font-size:0.3rem;
+        font-family:'PingFangSC-Medium';
+    }
+    .columnar{          
+        padding:0 0 0.2rem 0 ;
+        margin-bottom:0.1rem;
+    }
+/* 博弈排行 */
+.ranking{
+    padding: 0.3rem 0.2rem;
+    background:#131313;
+    color:#fff;
+    font-size:0.32rem;
+    margin-bottom:0.05rem;
+    font-family:"PingFangSC-Medium";
+    position: relative;
+}
+.navHeader{
+    display: flex;
+    color:#999;
+    background:#131313;
+    box-shadow:0 0.02rem 0.1rem 0.1rem rgba(0,0,0,0.1);
+}
+.navBtn{
+    flex:1;
+    width:25%;
+    text-align: center;
+    padding:0 0.1rem 0 0.1rem;
+    font-size:0.3rem;
+}
+.navBtnNav{
+    display:inline-block;
+    font-size:0.3rem;
+    padding:0.15rem;
+}
+.numberColor{
+    font-family:"din";
+    font-size:0.3rem; 
+}
+.navDiv{
+    width:100%;
+    display:none;
+    clear: both;
+    overflow-y:auto;
+}
+.navRow{
+    background-color: #070707;
+    color:#999;
+    clear: both;
+    width:100%;
+}
+.titleLeft{
+    width:25%;
+    float: left;
+    font-size:0.25rem;
+    padding:0.15rem 0 0.15rem 0.3rem;
+    box-sizing: border-box;
+}
+.leftRight{
+    width:75%;
+    padding:0.15rem 0;
+    display:inline-block;
+    box-sizing: border-box;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.rightTitle{
+    font-size:0.25rem; 
+    width:33.33%;
+    display:inline-block;
+    text-align: center;    
+    position: relative;
+}
+.rightTitle>p{
+    font-size:0.25rem;
+    display:inline-block;
+}
+.rightTitle img{
+    width:0.3rem;
+    height:auto;
+    position: absolute;
+    top:0.05rem;
+}
+.Upward{
+    position:relative;
+    top:-0.08rem;
+    color:#555;
+}
+.Downward{
+    position:relative;
+    left:-0.145rem;
+    top:0.05rem;
+    color:#b7966c;
+}
+.Upward1{
+    position:relative;
+    top:-0.08rem;
+    color:#b7966c;
+}
+.Downward2{
+    position:relative;
+    left:-0.145rem;
+    top:0.05rem;
+    color:#555;
+}
+/* 左侧 */
+.leftList{
+    width:25%;
+    float: left;
+    background:#131313;
+    color:#fff;
+    padding:0 0 0 0.3rem;
+    box-sizing:border-box;
+    overflow-y: auto;
+}
+.leftName{
+    padding: 0.15rem 0.15rem 0.15rem 0;
+    border-bottom: 1px solid #22201C;
+    height:0.9rem;
+    box-sizing: border-box;
+}
+.topContent{
+    font-size:0.29rem;
+}
+.downContent{
+    color:#999;
+    font-size: 0.23rem;
+    font-family:'din';
+}
+/* 右侧 */
+.rightList{
+    width:75%;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: auto;
+    text-align:center;
+    background:#131313;
+}
+.rightFlex{
+    padding: 0.2rem 0;    
+    border-bottom: 1px solid #22201C;
+    width:136%;
+    height: 0.9rem;   
+    box-sizing: border-box;
+}
+
+.Record{
+    display: inline-block;
+    width:25%;
+    text-align:right;
+    padding:0 0.6rem 0 0;
+    box-sizing: border-box;
+    font-size: 0.35rem;
+    color:#fff;
+    font-family:"din";
+}
+
+/* 底部按钮 */
+.btn{
+    padding:0.2rem;
+    text-align:center;
+    font-size:0.24rem;
+    color:#B7966C;
+}
+
+/* 点击出现颜色 */
+.addStyle{
+    border-bottom:0.04rem solid #B7966C;
+    color:#B7966C;
+}
+/* 错误提示 */
+.errorLeft{
+    text-align:right;
+    margin:0.5rem 0;
+    font-size:0.3rem;
+    color:#999;
+}
+.errorRight{
+    text-align:left;
+    margin:0.5rem 0;
+    font-size:0.3rem;
+    color:#999;        
+}
+/* ios10固定高度 */
+.addHeight{
+    height:527px;
+    overflow: hidden;
+}
